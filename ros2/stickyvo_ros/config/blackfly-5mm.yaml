@@ -1,0 +1,24 @@
+stickyvo_node:
+  ros__parameters:
+    # Topics
+    topic_image_compressed: "/cam_driver/image_raw"
+    topic_imu: "/vectornav/imu"
+    topic_gps: "/ublox_gps_node/fix"
+
+    # Camera calibration 
+    cam0:
+      is_compressed: false
+      camera_model: "pinhole"
+      distortion_model: "radtan"
+      intrinsics: [1409.3656261551553, 1409.2412807927412, 1025.1257452483976, 775.8680519305368] # fx, fy, cx, cy
+      distortion_coeffs: [-0.04862487738643772, 0.056648504217909866, 0.0002587889230307658, -0.000745208124357239] # k1,k2,p1,p2
+      resolution: [2048, 1536]
+
+    # AHRS tuning (Mahony-like)
+    ahrs:
+      kp: 2.0
+      ki: 0.0
+
+    # Buffers
+    imu_buffer_max: 4000
+    gps_buffer_max: 200
