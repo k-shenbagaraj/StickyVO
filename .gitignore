@@ -10,9 +10,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Zips and Data (Clean start)
-*.zip
-
 # OS/IDE
 .vscode/
 .DS_Store

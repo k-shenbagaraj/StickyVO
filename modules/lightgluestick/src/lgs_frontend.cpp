@@ -54,6 +54,10 @@ struct LgsFrontend::Impl {
   ~Impl() {
     {
       py::gil_scoped_acquire gil;
+      try {
+        py::module mod = py::module::import(cfg.python_module.c_str());
+        if (py::hasattr(mod, "shutdown_lgs")) mod.attr("shutdown_lgs")();
+      } catch (...) {}
       fn = py::none();
     }
     std::lock_guard<std::mutex> lk(interp_mutex());

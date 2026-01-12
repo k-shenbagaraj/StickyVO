@@ -90,6 +90,14 @@ def reset_lgs_sequence():
     _LGS_LAST_TRACK_IDS_LINES = None
     _LGS_NEXT_TRACK_ID_LINES = 0
 
+def shutdown_lgs():
+    """Explicitly release GPU resources and clear cache."""
+    global _LGS_PIPELINE, _LGS_LAST_VIEW_CACHE
+    _LGS_PIPELINE = None
+    _LGS_LAST_VIEW_CACHE = None
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
 # --- Core Inference Logic ---
 
 def _run_lightgluestick_internal(img0_gray: np.ndarray, img1_gray: np.ndarray, depth_confidence: float = -1.0, sequential: bool = True) -> Dict[str, np.ndarray]:
