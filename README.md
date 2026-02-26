@@ -17,7 +17,7 @@ A high-performance Visual Odometry (VO) system using **LightGlueStick** for robu
 ### Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/k-shenbagaraj/StickyVO.git
 cd StickyVO
 ```
 
